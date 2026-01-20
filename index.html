@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prijava za članstvo u HNK Hajduk Split</title>
+    <style>
+        input:invalid {
+            background: rgb(177, 152, 152);
+        }
+        
+        input:valid {
+            background: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Prijava za članstvo u HNK Hajduk Split (kao navijač)</h1>
+
+<p>
+    Učlanjuješ se po prvi put ili ne znaš svoj članski broj?<br>
+    Budi bez brige i nastavi s unosom ostalih osobnih podataka!
+</p>
+
+<form>
+
+    Članski broj (ako ga znaš)<br>
+    <input type="search" name="clanski_broj" value="Search ..." /><br /><br />
+
+    Ime *<br>
+    <input type="text" name="ime" required /><br /><br />
+
+    Prezime *<br>
+    <input type="text" name="prezime" required /><br /><br />
+
+    Datum rođenja *<br>
+    <input type="date" name="datum_rodenja" required /><br /><br />
+
+    Email *<br>
+    <input type="email" name="email" required /><br /><br />
+
+    Mobitel (npr. +385 91 ...)<br>
+    <input type="tel" name="mobitel" pattern="\+\+[0-9\-]+" /><br /><br />
+
+    Godina za koju se učlanjuješ<br>
+    <input type="month" name="godina" /><br /><br />
+
+    Tvoja omiljena boja Hajduka (crvena ili plava)<br>
+    <input type="color" name="boja_hajduka" value="#c8102e" /><br /><br />
+
+    Koliko si godina navijač Hajduka<br>
+    <input type="number" name="godine_navijac" min="0" max="100" value="5" /><br /><br />
+
+    Adjust koliko si lud za Hajdukom (1 = malo, 10 = totalno lud)<br>
+    <input type="range" id="ival" name="ludost" value="7" min="1" max="10" step="1" /><br />
+    <output id="oval" for="ival">7</output><br /><br />
+
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function synchOutput(ev) {
+            document.getElementById("oval").value = ev.target.value;
+        }
+        document.getElementById("ival").addEventListener("input", synchOutput);
+    });
+</script>
+
+</body>
+</html>
